@@ -1,0 +1,10 @@
+{
+  "name": "AIVM - AI Interview Coach",
+  "description": "Comprehensive AI-powered interview coaching platform offering personalized mock interviews, voice practice, detailed scoring, and role-specific study roadmaps.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with resume, target roles, and career preferences",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "education": { "type": "string" },
+        "degree": { "type": "string" },
+        "skills": { "type": "string" },
+        "workExperience": { "type": "string" },
+        "currentRole": { "type": "string" },
+        "targetRole": { "type": "string" },
+        "experienceLevel": { "type": "string" },
+        "careerGoals": { "type": "string" },
+        "preferredInterviewType": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Interview": {
+      "title": "Interview",
+      "description": "Mock interview session with conversation, state, and evaluation",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "targetRole": { "type": "string" },
+        "company": { "type": "string" },
+        "experienceLevel": { "type": "string" },
+        "interviewType": { "type": "string" },
+        "difficulty": { "type": "string" },
+        "durationMinutes": { "type": "number" },
+        "totalQuestions": { "type": "number" },
+        "status": { "type": "string" },
+        "currentQuestionIndex": { "type": "number" },
+        "messages": { "type": "string" },
+        "evaluation": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "targetRole", "status"]
+    },
+    "PracticeQuestion": {
+      "title": "PracticeQuestion",
+      "description": "Individual practice question response and feedback",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "category": { "type": "string" },
+        "question": { "type": "string" },
+        "userAnswer": { "type": "string" },
+        "feedback": { "type": "string" },
+        "score": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "question"]
+    },
+    "Bookmark": {
+      "title": "Bookmark",
+      "description": "User bookmarked blogs, study guides, and tips",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "itemType": { "type": "string" },
+        "itemId": { "type": "string" },
+        "title": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "itemId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile data accessible only by the owner"
+    },
+    "/interviews/{interviewId}": {
+      "schema": "Interview",
+      "description": "Interview sessions accessible only by the creator"
+    },
+    "/practice/{practiceId}": {
+      "schema": "PracticeQuestion",
+      "description": "Practice attempts accessible only by the user"
+    },
+    "/bookmarks/{bookmarkId}": {
+      "schema": "Bookmark",
+      "description": "Saved articles and study notes"
+    }
+  }
+}
